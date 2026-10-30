@@ -9,9 +9,6 @@ import { heroSlides } from "@/data/after-extras";
 
 const AUTOPLAY_MS = 6000;
 
-// Full-bleed hero slider: crossfading lifestyle slides with a Ken Burns
-// zoom, staggered text, glass controls, autoplay (pauses on hover/focus),
-// swipe and keyboard support.
 export default function Hero() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -51,7 +48,10 @@ export default function Hero() {
 
   useEffect(() => {
     if (autoplayOff) return;
-    const timer = setTimeout(() => setActive((current) => (current + 1) % slideCount), AUTOPLAY_MS);
+    const timer = setTimeout(
+      () => setActive((current) => (current + 1) % slideCount),
+      AUTOPLAY_MS,
+    );
     return () => clearTimeout(timer);
   }, [active, cycle, autoplayOff, slideCount]);
 
@@ -76,7 +76,11 @@ export default function Hero() {
   };
   const textItem = {
     hidden: { opacity: 0, y: 22 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" as const },
+    },
   };
 
   const currentSlide = heroSlides[active];
@@ -89,7 +93,8 @@ export default function Hero() {
       onMouseLeave={resume}
       onFocusCapture={pause}
       onBlurCapture={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) resume();
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null))
+          resume();
       }}
       onTouchStart={(event) => {
         touchStart.current = {
@@ -104,7 +109,12 @@ export default function Hero() {
       {heroSlides.map((slide, index) => {
         const isActive = index === active;
         return (
-          <div key={slide.headline} aria-hidden={!isActive} inert={!isActive} className="absolute inset-0">
+          <div
+            key={slide.headline}
+            aria-hidden={!isActive}
+            inert={!isActive}
+            className="absolute inset-0"
+          >
             <motion.div
               className="h-full w-full"
               animate={{ opacity: isActive ? 1 : 0 }}
@@ -170,7 +180,10 @@ export default function Hero() {
             >
               {currentSlide.support}
             </motion.p>
-            <motion.div variants={textItem} className="mt-6 flex flex-wrap gap-3 sm:mt-8">
+            <motion.div
+              variants={textItem}
+              className="mt-6 flex flex-wrap gap-3 sm:mt-8"
+            >
               <Link
                 href="#featured"
                 className="rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-[#2f3a26] transition-all duration-200 hover:bg-[#f1ece1] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#4d5b3f]"

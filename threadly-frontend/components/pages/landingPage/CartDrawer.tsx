@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, Minus, Plus, ShoppingBag, Trash2, X } from "lucide-react";
+import { ArrowRight, Check, Minus, Plus, ShoppingBag, Trash2, X } from "lucide-react";
 import { formatMoney, useCart } from "./CartContext";
 import { freeShippingThreshold } from "@/data/after-extras";
 import { useBodyScrollLock, useEscapeKey, useFocusTrap } from "./overlay-hooks";
@@ -73,13 +74,13 @@ export default function CartDrawer() {
                 <p className="max-w-xs text-sm leading-relaxed text-stone-500">
                   Fill it with best sellers — free shipping unlocks at {formatMoney(freeShippingThreshold)}.
                 </p>
-                <a
-                  href="#featured"
+                <Link
+                  href="/#featured"
                   onClick={closeCart}
                   className="mt-2 rounded-full bg-[#4d5b3f] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#3f4b33] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4d5b3f] focus-visible:ring-offset-2"
                 >
                   Continue shopping
-                </a>
+                </Link>
               </div>
             ) : (
               <ul className="flex-1 space-y-4 overflow-y-auto px-5 py-4">
@@ -191,6 +192,14 @@ export default function CartDrawer() {
               >
                 Checkout · {formatMoney(subtotal)}
               </button>
+              <Link
+                href="/cart"
+                onClick={closeCart}
+                className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-full border border-stone-300 py-3.5 text-sm font-semibold text-stone-700 transition-colors hover:border-[#4d5b3f] hover:text-[#4d5b3f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4d5b3f] focus-visible:ring-offset-2"
+              >
+                View full cart
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
               <p className="mt-3 text-center text-xs text-stone-500">
                 Demo storefront — checkout is not connected.
               </p>

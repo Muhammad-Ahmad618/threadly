@@ -25,7 +25,7 @@ export const heroSlides = [
       "Relaxed tailoring and natural fabrics in earthy tones — new arrivals made for everyday wear.",
     image: "/images/after/hero-1.jpg",
     imageAlt:
-      "Couple in earthy brown outfits standing together in a field of tall dry grass",
+      "Model in a cream linen vest and wide-leg trousers in a warm studio",
   },
   {
     eyebrow: "The Linen Edit",
@@ -33,7 +33,8 @@ export const heroSlides = [
     support:
       "Breathable linen and cotton staples that keep their shape from morning coffee to last light.",
     image: "/images/after/hero-2.jpg",
-    imageAlt: "Man wearing a cream linen suit in soft natural light",
+    imageAlt:
+      "Woman wearing a beige linen trench coat against a soft grey backdrop",
   },
   {
     eyebrow: "Everyday Basics",
@@ -42,7 +43,7 @@ export const heroSlides = [
       "Quality fabrics, honest prices and free returns — basics you will reach for on repeat.",
     image: "/images/after/hero-3.jpg",
     imageAlt:
-      "Man in a charcoal shirt adjusting his glasses by a weathered wooden door",
+      "Woman in a relaxed white shirt seated on a wooden chair against a warm neutral backdrop",
   },
 ];
 

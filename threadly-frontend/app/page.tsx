@@ -1,18 +1,14 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Poppins } from "next/font/google";
-import { CartProvider } from "@/components/pages/landingPage/CartContext";
-import AnnouncementBar from "@/components/pages/landingPage/AnnouncementBar";
-import Header from "@/components/pages/landingPage/Header";
+import SiteShell from "@/components/shared/SiteShell";
 import Hero from "@/components/pages/landingPage/Hero";
 import TrustStrip from "@/components/pages/landingPage/TrustStrip";
 import Categories from "@/components/pages/landingPage/Categories";
 import FeaturedProducts from "@/components/pages/landingPage/FeaturedProducts";
-import CartDrawer from "@/components/pages/landingPage/CartDrawer";
 import PromoBanner from "@/components/pages/landingPage/PromoBanner";
 import BrandStory from "@/components/pages/landingPage/BrandStory";
 import Reviews from "@/components/pages/landingPage/Reviews";
 import Newsletter from "@/components/pages/landingPage/Newsletter";
-import Footer from "@/components/pages/landingPage/Footer";
 
 // Elegant serif display for headings, Poppins for everything else — scoped
 // to this page via CSS variables so /before is untouched.
@@ -40,22 +36,16 @@ export default function landingPagePage() {
     <div
       className={`${display.variable} ${body.variable} scroll-smooth bg-[#faf7f2] text-stone-600 antialiased [font-family:var(--font-landingPage-body)]`}
     >
-      <CartProvider>
-        <AnnouncementBar />
-        <Header />
-        <main>
-          <Hero />
-          <TrustStrip />
-          <Categories />
-          <FeaturedProducts />
-          <PromoBanner />
-          <BrandStory />
-          <Reviews />
-          <Newsletter />
-        </main>
-        <Footer />
-        <CartDrawer />
-      </CartProvider>
+      <SiteShell>
+        <Hero />
+        <TrustStrip />
+        <Categories />
+        <FeaturedProducts />
+        <PromoBanner />
+        <BrandStory />
+        <Reviews />
+        <Newsletter />
+      </SiteShell>
     </div>
   );
 }

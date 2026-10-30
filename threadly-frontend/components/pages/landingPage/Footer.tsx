@@ -85,7 +85,7 @@ export default function Footer() {
         <div className="flex flex-col gap-8 border-b border-white/10 pb-10 md:flex-row md:items-center md:justify-between">
           <div className="max-w-md">
             <Link
-              href="/after"
+              href="/"
               className="inline-flex items-center gap-2.5 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
             >
               <Image
